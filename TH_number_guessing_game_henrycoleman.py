@@ -14,16 +14,19 @@ import random
 def start_game():
 
     hi_score = [] # Stores the player score
+    
+    
+    print("=" * 48 +  "\nWelcome to the Super Cool Number Guessing Game!\n" + "=" * 48 + "\n"  )
+    name = input("What is your name? ")
+    print("Hello {}, best of luck & lets begin! ".format(name))
+    
     continue_game = "y" # Gives player the option to end the game
     player_guess = None
     player_attempts = 0
     answer = random.randint(1,10)
             
-
-    print("Welcome to the Super Cool Number Guessing Game!" )
-    name = input("What is your name? ")
-    print("Hello {}, best of luck & lets begin! ".format(name))
-    while player_guess != "answer":
+    
+    while player_guess != answer:
         try:
             player_guess = int(input("Please guess a number between 1 & 10: "))
             while (player_guess < 1) or (player_guess > 10):
@@ -41,16 +44,13 @@ def start_game():
                 continue_game = input(" Would you like to play again? y or n ?: ")
                 if continue_game.lower() == "n":
                     print("Bye for now & see you soon!")
-
+                else:
+                    print("The High score is {}".format(min(hi_score)))
+            
         except SyntaxError as err:
             print("Invalid value ! ({})\n Please try again". format(err))
         except NameError as err:
             print("Invalid value ! ({})\n Please try again". format(err))
-
-        
-
-                
-            
 
 if __name__=='__main__':
     start_game()

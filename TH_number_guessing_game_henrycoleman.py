@@ -44,12 +44,12 @@ def start_game():
                     else:
                         print("The High score is {}".format(min(hi_score)))
             
-            except SyntaxError as err:
-                print("Invalid value ! ({})\n Please try again". format(err))
-            except NameError as err:
-                print("Invalid value ! ({})\n Please try again". format(err))
+            except SyntaxError:
+                print("Oh dear something went wrong !\n Please try again")
+            except NameError:
+                print("Whoops, that doesn't look correct !\n Please try again")
             except ValueError as err:
-                print("Invalid value ! ({})\n Please try again". format(err))
+                print("That doesn't look like a number to me !\n Please try again")
 
 if __name__=='__main__':
     start_game()
